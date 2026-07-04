@@ -1,3 +1,5 @@
+from datetime import date
+
 from django.db import models
 from django.db.models import Max
 
@@ -30,7 +32,7 @@ class Patient(models.Model):
     uhid = models.CharField(
         max_length=12,
         unique=True,
-        editable=False
+        editable=False,
     )
 
     first_name = models.CharField(max_length=100)
@@ -39,42 +41,59 @@ class Patient(models.Model):
 
     gender = models.CharField(
         max_length=10,
-        choices=GENDER_CHOICES
+        choices=GENDER_CHOICES,
     )
 
     date_of_birth = models.DateField()
 
     blood_group = models.CharField(
         max_length=5,
-        choices=BLOOD_GROUP_CHOICES
+        choices=BLOOD_GROUP_CHOICES,
     )
 
-    phone = models.CharField(max_length=15)
+    phone = models.CharField(
+        max_length=15,
+        unique=True,
+    )
+
+    aadhaar_number = models.CharField(
+        max_length=12,
+        blank=True,
+        null=True,
+    )
 
     email = models.EmailField(
         blank=True,
-        null=True
+        null=True,
     )
 
     address = models.TextField()
 
-    emergency_contact = models.CharField(max_length=15)
+    emergency_contact = models.CharField(
+        max_length=15,
+    )
 
     guardian_name = models.CharField(
         max_length=100,
         blank=True,
-        null=True
+        null=True,
     )
 
     allergies = models.TextField(
         blank=True,
-        null=True
+        null=True,
+    )
+
+    photo = models.ImageField(
+        upload_to="patients/",
+        blank=True,
+        null=True,
     )
 
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,
-        default="Active"
+        default="Active",
     )
 
     created_at = models.DateTimeField(auto_now_add=True)
@@ -89,5 +108,20 @@ class Patient(models.Model):
 
         super().save(*args, **kwargs)
 
+    @property
+    def age(self):
+        today = date.today()
+        return (
+            today.year
+            - self.date_of_birth.year
+            - (
+                (today.month, today.day)
+                < (self.date_of_birth.month, self.date_of_birth.day)
+            )
+        )
+
     def __str__(self):
         return f"{self.uhid} - {self.first_name} {self.last_name}"
+
+    class Meta:
+        ordering = ["-created_at"]
