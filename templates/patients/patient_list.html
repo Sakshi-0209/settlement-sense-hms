@@ -9,23 +9,76 @@ Patients
 <div class="container-fluid">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Patients</h2>
+
+        <h2>Patient Management</h2>
 
         <a href="#" class="btn btn-primary">
             + Add Patient
         </a>
+
     </div>
 
     <div class="card shadow-sm">
+
         <div class="card-body">
 
-            <h4>Patients Module Connected Successfully ✅</h4>
+            <table class="table table-hover">
 
-            <p>
-                Now we will build the Patient Management System.
-            </p>
+                <thead>
+
+                    <tr>
+
+                        <th>UHID</th>
+                        <th>Name</th>
+                        <th>Gender</th>
+                        <th>Age</th>
+                        <th>Phone</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                {% for patient in patients %}
+
+                    <tr>
+
+                        <td>{{ patient.uhid }}</td>
+
+                        <td>{{ patient.first_name }} {{ patient.last_name }}</td>
+
+                        <td>{{ patient.gender }}</td>
+
+                        <td>{{ patient.age }}</td>
+
+                        <td>{{ patient.phone }}</td>
+
+                        <td>{{ patient.status }}</td>
+
+                    </tr>
+
+                {% empty %}
+
+                    <tr>
+
+                        <td colspan="6" class="text-center">
+
+                            No Patients Found
+
+                        </td>
+
+                    </tr>
+
+                {% endfor %}
+
+                </tbody>
+
+            </table>
 
         </div>
+
     </div>
 
 </div>
