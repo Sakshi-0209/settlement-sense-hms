@@ -167,9 +167,16 @@ HMS
 
 <ul>
 
-<li><a href="#"><i class="fa-solid fa-gauge"></i> Dashboard</a></li>
+<a href="{% url 'dashboard' %}">
+    <i class="fa-solid fa-gauge"></i> Dashboard
+</a>
 
-<li><a href="#"><i class="fa-solid fa-user"></i> Patients</a></li>
+<li>
+    <a href="{% url 'patients' %}">
+        <i class="fa-solid fa-user"></i>
+        Patients
+    </a>
+</li>
 
 <li><a href="#"><i class="fa-solid fa-user-doctor"></i> Doctors</a></li>
 
