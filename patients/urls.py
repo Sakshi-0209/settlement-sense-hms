@@ -15,4 +15,22 @@ urlpatterns = [
         name="add_patient",
     ),
 
+    path(
+        "view/<int:pk>/",
+        views.view_patient,
+        name="view_patient",
+    ),
+
+    path(
+        "edit/<int:pk>/",
+        views.edit_patient,
+        name="edit_patient",
+    ),
+
+    path(
+        "delete/<int:pk>/",
+        views.delete_patient,
+        name="delete_patient",
+    ),
+
 ]

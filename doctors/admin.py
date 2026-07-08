@@ -4,22 +4,30 @@ from .models import Doctor
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
+
     list_display = (
-        "full_name",
-        "specialization",
+        "doctor_id",
+        "first_name",
+        "last_name",
         "department",
+        "specialization",
         "phone",
-        "consultation_fee",
         "status",
     )
 
     search_fields = (
-        "full_name",
+        "doctor_id",
+        "first_name",
+        "last_name",
         "department",
         "phone",
     )
 
     list_filter = (
-        "specialization",
+        "department",
         "status",
+    )
+
+    ordering = (
+        "first_name",
     )
