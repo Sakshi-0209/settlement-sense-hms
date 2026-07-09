@@ -1,0 +1,85 @@
+{% extends "base.html" %}
+
+{% block title %}
+Ward Details
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+
+            <h3>Ward Details</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Ward Name</th>
+                    <td>{{ ward.ward_name }}</td>
+                </tr>
+
+                <tr>
+                    <th>Ward Type</th>
+                    <td>{{ ward.ward_type }}</td>
+                </tr>
+
+                <tr>
+                    <th>Floor</th>
+                    <td>{{ ward.floor }}</td>
+                </tr>
+
+                <tr>
+                    <th>Total Beds</th>
+                    <td>{{ ward.total_beds }}</td>
+                </tr>
+
+                <tr>
+                    <th>Available Beds</th>
+                    <td>{{ ward.available_beds }}</td>
+                </tr>
+
+                <tr>
+                    <th>Ward Incharge</th>
+                    <td>{{ ward.incharge }}</td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>{{ ward.status }}</td>
+                </tr>
+
+                <tr>
+                    <th>Description</th>
+                    <td>{{ ward.description }}</td>
+                </tr>
+
+            </table>
+
+            <a href="{% url 'wards' %}"
+               class="btn btn-secondary">
+
+                Back
+
+            </a>
+
+            <a href="{% url 'edit_ward' ward.id %}"
+               class="btn btn-warning">
+
+                Edit
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

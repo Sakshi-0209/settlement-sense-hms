@@ -1,7 +1,5 @@
 """
 URL configuration for settlementsense project.
-
-The `urlpatterns` list routes URLs to views.
 """
 
 from django.contrib import admin
@@ -27,6 +25,11 @@ urlpatterns = [
     path(
         "doctors/",
         include("doctors.urls"),
+    ),
+
+    path(
+        "wards/",
+        include("wards.urls"),
     ),
 
 ]
