@@ -9,6 +9,7 @@ class BedAdmin(admin.ModelAdmin):
         "bed_number",
         "ward",
         "status",
+        "created_at",
     )
 
     list_filter = (
@@ -18,9 +19,9 @@ class BedAdmin(admin.ModelAdmin):
 
     search_fields = (
         "bed_number",
+        "ward__ward_name",
     )
 
     ordering = (
-        "ward",
         "bed_number",
     )

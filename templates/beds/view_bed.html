@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}
+Bed Details
+{% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+
+    <div class="card shadow">
+
+        <div class="card-header bg-primary text-white">
+
+            <h3>Bed Details</h3>
+
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Bed Number</th>
+                    <td>{{ bed.bed_number }}</td>
+                </tr>
+
+                <tr>
+                    <th>Ward</th>
+                    <td>{{ bed.ward.ward_name }}</td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>{{ bed.status }}</td>
+                </tr>
+
+                <tr>
+                    <th>Remarks</th>
+                    <td>{{ bed.remarks }}</td>
+                </tr>
+
+                <tr>
+                    <th>Created</th>
+                    <td>{{ bed.created_at }}</td>
+                </tr>
+
+            </table>
+
+            <a href="{% url 'beds' %}"
+               class="btn btn-secondary">
+
+                Back
+
+            </a>
+
+            <a href="{% url 'edit_bed' bed.id %}"
+               class="btn btn-warning">
+
+                Edit
+
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
