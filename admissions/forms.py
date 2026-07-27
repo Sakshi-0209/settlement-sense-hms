@@ -1,13 +1,13 @@
 from django import forms
 from .models import Admission
+from beds.models import Bed
+from django.db.models import Q
 
 
 class AdmissionForm(forms.ModelForm):
 
     class Meta:
-
         model = Admission
-
         fields = "__all__"
 
         widgets = {
@@ -77,3 +77,19 @@ class AdmissionForm(forms.ModelForm):
                 }
             ),
         }
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        # Add Admission
+        if not self.instance.pk:
+            self.fields["bed"].queryset = Bed.objects.filter(
+                status="Available"
+            )
+
+        # Edit Admission
+        else:
+            self.fields["bed"].queryset = Bed.objects.filter(
+                Q(status="Available") |
+                Q(pk=self.instance.bed.pk)
+            )

@@ -47,7 +47,7 @@ INSTALLED_APPS = [
 'admissions',
 'billing',
 'reports',
-
+'appointments',
 ]
 
 MIDDLEWARE = [

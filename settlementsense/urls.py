@@ -36,5 +36,9 @@ urlpatterns = [
         "beds/",
         include("beds.urls"),
     ),
+    path(
+        "admissions/",
+        include("admissions.urls"),
+    ),
 
 ]

@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Admission{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-danger text-white">
+            <h4 class="mb-0">Delete Admission</h4>
+        </div>
+
+        <div class="card-body">
+
+            <h5 class="text-danger">
+                Are you sure you want to delete this admission?
+            </h5>
+
+            <hr>
+
+            <p><strong>Admission ID:</strong> {{ admission.admission_id }}</p>
+
+            <p><strong>Patient:</strong> {{ admission.patient }}</p>
+
+            <p><strong>Doctor:</strong> {{ admission.doctor }}</p>
+
+            <p><strong>Ward:</strong> {{ admission.ward }}</p>
+
+            <p><strong>Bed:</strong> {{ admission.bed }}</p>
+
+            <form method="POST">
+
+                {% csrf_token %}
+
+                <button type="submit" class="btn btn-danger">
+                    Yes, Delete
+                </button>
+
+                <a href="{% url 'admissions' %}" class="btn btn-secondary">
+                    Cancel
+                </a>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
