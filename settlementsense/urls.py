@@ -41,4 +41,8 @@ urlpatterns = [
         include("admissions.urls"),
     ),
 
+    path(
+        "appointments/",
+        include("appointments.urls"),
+    ),
 ]
