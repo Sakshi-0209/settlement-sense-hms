@@ -45,4 +45,10 @@ urlpatterns = [
         "appointments/",
         include("appointments.urls"),
     ),
-]
+
+    path(
+        "billing/",
+        include("billing.urls"),
+    ),
+
+] 

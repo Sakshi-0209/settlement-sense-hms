@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}View Appointment{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Appointment Details</h4>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Appointment ID</th>
+                    <td>{{ appointment.appointment_id }}</td>
+                </tr>
+
+                <tr>
+                    <th>Patient</th>
+                    <td>{{ appointment.patient }}</td>
+                </tr>
+
+                <tr>
+                    <th>Doctor</th>
+                    <td>{{ appointment.doctor }}</td>
+                </tr>
+
+                <tr>
+                    <th>Date</th>
+                    <td>{{ appointment.appointment_date }}</td>
+                </tr>
+
+                <tr>
+                    <th>Time</th>
+                    <td>{{ appointment.appointment_time }}</td>
+                </tr>
+
+                <tr>
+                    <th>Reason</th>
+                    <td>{{ appointment.reason }}</td>
+                </tr>
+
+                <tr>
+                    <th>Status</th>
+                    <td>{{ appointment.status }}</td>
+                </tr>
+
+                <tr>
+                    <th>Notes</th>
+                    <td>{{ appointment.notes }}</td>
+                </tr>
+
+            </table>
+
+            <a href="{% url 'appointments' %}" class="btn btn-secondary">
+                Back
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

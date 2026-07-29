@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Delete Appointment{% endblock %}
+{% block title %}Delete Bill{% endblock %}
 
 {% block content %}
 
@@ -9,40 +9,40 @@
     <div class="card shadow-sm">
 
         <div class="card-header bg-danger text-white">
-            <h4 class="mb-0">Delete Appointment</h4>
+            <h4 class="mb-0">Delete Bill</h4>
         </div>
 
         <div class="card-body">
 
             <p class="fs-5">
-                Are you sure you want to delete this appointment?
+                Are you sure you want to delete this bill?
             </p>
 
             <table class="table table-bordered">
 
                 <tr>
-                    <th>Appointment ID</th>
-                    <td>{{ appointment.appointment_id }}</td>
+                    <th>Bill ID</th>
+                    <td>{{ bill.bill_id }}</td>
                 </tr>
 
                 <tr>
                     <th>Patient</th>
-                    <td>{{ appointment.patient }}</td>
+                    <td>{{ bill.patient }}</td>
                 </tr>
 
                 <tr>
-                    <th>Doctor</th>
-                    <td>{{ appointment.doctor }}</td>
+                    <th>Bill Date</th>
+                    <td>{{ bill.bill_date }}</td>
                 </tr>
 
                 <tr>
-                    <th>Date</th>
-                    <td>{{ appointment.appointment_date }}</td>
+                    <th>Total Amount</th>
+                    <td>{{ bill.total_amount }}</td>
                 </tr>
 
                 <tr>
-                    <th>Time</th>
-                    <td>{{ appointment.appointment_time }}</td>
+                    <th>Payment Status</th>
+                    <td>{{ bill.payment_status }}</td>
                 </tr>
 
             </table>
@@ -52,10 +52,10 @@
                 {% csrf_token %}
 
                 <button type="submit" class="btn btn-danger">
-                    Delete Appointment
+                    Delete Bill
                 </button>
 
-                <a href="{% url 'appointments' %}" class="btn btn-secondary">
+                <a href="{% url 'billing' %}" class="btn btn-secondary">
                     Cancel
                 </a>
 

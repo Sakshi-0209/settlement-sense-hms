@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+{% block title %}View Bill{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-info text-white">
+            <h4 class="mb-0">Bill Details</h4>
+        </div>
+
+        <div class="card-body">
+
+            <table class="table table-bordered">
+
+                <tr>
+                    <th>Bill ID</th>
+                    <td>{{ bill.bill_id }}</td>
+                </tr>
+
+                <tr>
+                    <th>Patient</th>
+                    <td>{{ bill.patient }}</td>
+                </tr>
+
+                <tr>
+                    <th>Admission</th>
+                    <td>{{ bill.admission }}</td>
+                </tr>
+
+                <tr>
+                    <th>Appointment</th>
+                    <td>{{ bill.appointment }}</td>
+                </tr>
+
+                <tr>
+                    <th>Bill Date</th>
+                    <td>{{ bill.bill_date }}</td>
+                </tr>
+
+                <tr>
+                    <th>Total Amount</th>
+                    <td>{{ bill.total_amount }}</td>
+                </tr>
+
+                <tr>
+                    <th>Paid Amount</th>
+                    <td>{{ bill.paid_amount }}</td>
+                </tr>
+
+                <tr>
+                    <th>Balance Amount</th>
+                    <td>{{ bill.balance_amount }}</td>
+                </tr>
+
+                <tr>
+                    <th>Payment Status</th>
+                    <td>{{ bill.payment_status }}</td>
+                </tr>
+
+                <tr>
+                    <th>Payment Method</th>
+                    <td>{{ bill.payment_method }}</td>
+                </tr>
+
+                <tr>
+                    <th>Notes</th>
+                    <td>{{ bill.notes }}</td>
+                </tr>
+
+            </table>
+
+            <a href="{% url 'billing' %}" class="btn btn-secondary">
+                Back
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
