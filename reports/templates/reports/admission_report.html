@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}Admission Report{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">Admission Report</h2>
+
+    <div class="card shadow-sm">
+
+        <div class="card-body table-responsive">
+
+            <table class="table table-bordered table-hover">
+
+                <thead class="table-dark">
+
+                    <tr>
+                        <th>Admission ID</th>
+                        <th>Patient</th>
+                        <th>Ward</th>
+                        <th>Bed</th>
+                        <th>Admission Date</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for admission in admissions %}
+
+                    <tr>
+
+                        <td>{{ admission.admission_id }}</td>
+                        <td>{{ admission.patient }}</td>
+                        <td>{{ admission.ward }}</td>
+                        <td>{{ admission.bed }}</td>
+                        <td>{{ admission.admission_date }}</td>
+
+                    </tr>
+
+                    {% empty %}
+
+                    <tr>
+
+                        <td colspan="5" class="text-center">
+                            No Admissions Found
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}

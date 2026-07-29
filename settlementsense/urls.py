@@ -50,5 +50,14 @@ urlpatterns = [
         "billing/",
         include("billing.urls"),
     ),
+    path(
+        "pharmacy/",
+        include("pharmacy.urls"),
+    ),
+    path(
+        "reports/",
+        include("reports.urls"),
+    )
+    
 
 ] 

@@ -1,3 +1,111 @@
 from django.shortcuts import render
 
-# Create your views here.
+from patients.models import Patient
+from doctors.models import Doctor
+from admissions.models import Admission
+from appointments.models import Appointment
+from billing.models import Billing
+from pharmacy.models import Medicine
+
+
+def reports_dashboard(request):
+
+    context = {
+
+        "patient_count": Patient.objects.count(),
+
+        "doctor_count": Doctor.objects.count(),
+
+        "admission_count": Admission.objects.count(),
+
+        "appointment_count": Appointment.objects.count(),
+
+        "billing_count": Billing.objects.count(),
+
+        "medicine_count": Medicine.objects.count(),
+
+    }
+
+    return render(
+        request,
+        "reports/report_dashboard.html",
+        context,
+    )
+
+
+def patient_report(request):
+
+    patients = Patient.objects.all()
+
+    return render(
+        request,
+        "reports/patient_report.html",
+        {
+            "patients": patients
+        },
+    )
+
+
+def doctor_report(request):
+
+    doctors = Doctor.objects.all()
+
+    return render(
+        request,
+        "reports/doctor_report.html",
+        {
+            "doctors": doctors
+        },
+    )
+
+
+def admission_report(request):
+
+    admissions = Admission.objects.all()
+
+    return render(
+        request,
+        "reports/admission_report.html",
+        {
+            "admissions": admissions
+        },
+    )
+
+
+def appointment_report(request):
+
+    appointments = Appointment.objects.all()
+
+    return render(
+        request,
+        "reports/appointment_report.html",
+        {
+            "appointments": appointments
+        },
+    )
+
+
+def billing_report(request):
+
+    bills = Billing.objects.all()
+
+    return render(
+        request,
+        "reports/billing_report.html",
+        {
+            "bills": bills
+        },
+    )
+
+
+def pharmacy_report(request):
+
+    medicines = Medicine.objects.all()
+
+    return render(
+        request,
+        "reports/pharmacy_report.html",
+        {
+            "medicines": medicines
+        },
+    )

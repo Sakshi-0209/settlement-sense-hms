@@ -1,0 +1,91 @@
+{% extends "base.html" %}
+
+{% block title %}Reports Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+
+    <h2 class="mb-4">
+        Reports Dashboard
+    </h2>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Patients</h5>
+                    <h2>{{ patient_count }}</h2>
+                    <a href="{% url 'patient_report' %}" class="btn btn-primary">
+                        View Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Doctors</h5>
+                    <h2>{{ doctor_count }}</h2>
+                    <a href="{% url 'doctor_report' %}" class="btn btn-primary">
+                        View Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Admissions</h5>
+                    <h2>{{ admission_count }}</h2>
+                    <a href="{% url 'admission_report' %}" class="btn btn-primary">
+                        View Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Appointments</h5>
+                    <h2>{{ appointment_count }}</h2>
+                    <a href="{% url 'appointment_report' %}" class="btn btn-primary">
+                        View Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Bills</h5>
+                    <h2>{{ billing_count }}</h2>
+                    <a href="{% url 'billing_report' %}" class="btn btn-primary">
+                        View Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5>Total Medicines</h5>
+                    <h2>{{ medicine_count }}</h2>
+                    <a href="{% url 'pharmacy_report' %}" class="btn btn-primary">
+                        View Report
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
