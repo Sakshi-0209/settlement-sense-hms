@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -6,6 +7,7 @@ from .models import Admission
 from .forms import AdmissionForm
 
 
+@login_required
 def admission_list(request):
 
     search = request.GET.get("search", "")
@@ -39,6 +41,7 @@ def admission_list(request):
     )
 
 
+@login_required
 def add_admission(request):
 
     if request.method == "POST":
@@ -69,6 +72,7 @@ def add_admission(request):
     )
 
 
+@login_required
 def view_admission(request, pk):
 
     admission = get_object_or_404(
@@ -85,6 +89,7 @@ def view_admission(request, pk):
     )
 
 
+@login_required
 def edit_admission(request, pk):
 
     admission = get_object_or_404(
@@ -126,6 +131,7 @@ def edit_admission(request, pk):
     )
 
 
+@login_required
 def delete_admission(request, pk):
 
     admission = get_object_or_404(

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from patients.models import Patient
@@ -8,6 +9,7 @@ from billing.models import Billing
 from pharmacy.models import Medicine
 
 
+@login_required
 def reports_dashboard(request):
 
     context = {
@@ -33,6 +35,7 @@ def reports_dashboard(request):
     )
 
 
+@login_required
 def patient_report(request):
 
     patients = Patient.objects.all()
@@ -46,6 +49,7 @@ def patient_report(request):
     )
 
 
+@login_required
 def doctor_report(request):
 
     doctors = Doctor.objects.all()
@@ -59,6 +63,7 @@ def doctor_report(request):
     )
 
 
+@login_required
 def admission_report(request):
 
     admissions = Admission.objects.all()
@@ -72,6 +77,7 @@ def admission_report(request):
     )
 
 
+@login_required
 def appointment_report(request):
 
     appointments = Appointment.objects.all()
@@ -85,6 +91,7 @@ def appointment_report(request):
     )
 
 
+@login_required
 def billing_report(request):
 
     bills = Billing.objects.all()
@@ -98,6 +105,7 @@ def billing_report(request):
     )
 
 
+@login_required
 def pharmacy_report(request):
 
     medicines = Medicine.objects.all()

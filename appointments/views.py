@@ -1,9 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Appointment
 from .forms import AppointmentForm
 
 
+@login_required
 def appointment_list(request):
 
     appointments = Appointment.objects.all()
@@ -19,6 +21,7 @@ def appointment_list(request):
     )
 
 
+@login_required
 def add_appointment(request):
 
     if request.method == "POST":
@@ -46,6 +49,7 @@ def add_appointment(request):
     )
 
 
+@login_required
 def view_appointment(request, pk):
 
     appointment = get_object_or_404(
@@ -64,6 +68,7 @@ def view_appointment(request, pk):
     )
 
 
+@login_required
 def edit_appointment(request, pk):
 
     appointment = get_object_or_404(
@@ -101,6 +106,7 @@ def edit_appointment(request, pk):
     )
 
 
+@login_required
 def delete_appointment(request, pk):
 
     appointment = get_object_or_404(

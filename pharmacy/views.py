@@ -1,9 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Medicine
 from .forms import MedicineForm
 
 
+@login_required
 def medicine_list(request):
 
     medicines = Medicine.objects.all()
@@ -19,6 +21,7 @@ def medicine_list(request):
     )
 
 
+@login_required
 def add_medicine(request):
 
     if request.method == "POST":
@@ -46,6 +49,7 @@ def add_medicine(request):
     )
 
 
+@login_required
 def view_medicine(request, pk):
 
     medicine = get_object_or_404(
@@ -64,6 +68,7 @@ def view_medicine(request, pk):
     )
 
 
+@login_required
 def edit_medicine(request, pk):
 
     medicine = get_object_or_404(
@@ -101,6 +106,7 @@ def edit_medicine(request, pk):
     )
 
 
+@login_required
 def delete_medicine(request, pk):
 
     medicine = get_object_or_404(

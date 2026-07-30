@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -6,6 +7,7 @@ from .models import Doctor
 from .forms import DoctorForm
 
 
+@login_required
 def doctor_list(request):
 
     search = request.GET.get("search", "")
@@ -33,6 +35,7 @@ def doctor_list(request):
     )
 
 
+@login_required
 def add_doctor(request):
 
     if request.method == "POST":
@@ -66,6 +69,7 @@ def add_doctor(request):
     )
 
 
+@login_required
 def edit_doctor(request, pk):
 
     doctor = get_object_or_404(
@@ -108,6 +112,7 @@ def edit_doctor(request, pk):
     )
 
 
+@login_required
 def delete_doctor(request, pk):
 
     doctor = get_object_or_404(
@@ -135,6 +140,7 @@ def delete_doctor(request, pk):
     )
 
 
+@login_required
 def view_doctor(request, pk):
 
     doctor = get_object_or_404(

@@ -1,9 +1,11 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 
 from .models import Billing
 from .forms import BillingForm
 
 
+@login_required
 def billing_list(request):
 
     bills = Billing.objects.all()
@@ -19,6 +21,7 @@ def billing_list(request):
     )
 
 
+@login_required
 def add_billing(request):
 
     if request.method == "POST":
@@ -46,6 +49,7 @@ def add_billing(request):
     )
 
 
+@login_required
 def view_billing(request, pk):
 
     bill = get_object_or_404(
@@ -64,6 +68,7 @@ def view_billing(request, pk):
     )
 
 
+@login_required
 def edit_billing(request, pk):
 
     bill = get_object_or_404(
@@ -101,6 +106,7 @@ def edit_billing(request, pk):
     )
 
 
+@login_required
 def delete_billing(request, pk):
 
     bill = get_object_or_404(

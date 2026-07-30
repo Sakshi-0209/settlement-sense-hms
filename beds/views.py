@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -6,6 +7,7 @@ from .models import Bed
 from .forms import BedForm
 
 
+@login_required
 def bed_list(request):
 
     search = request.GET.get("search", "")
@@ -32,6 +34,7 @@ def bed_list(request):
     )
 
 
+@login_required
 def add_bed(request):
 
     if request.method == "POST":
@@ -62,6 +65,7 @@ def add_bed(request):
     )
 
 
+@login_required
 def view_bed(request, pk):
 
     bed = get_object_or_404(
@@ -78,6 +82,7 @@ def view_bed(request, pk):
     )
 
 
+@login_required
 def edit_bed(request, pk):
 
     bed = get_object_or_404(
@@ -119,6 +124,7 @@ def edit_bed(request, pk):
     )
 
 
+@login_required
 def delete_bed(request, pk):
 
     bed = get_object_or_404(

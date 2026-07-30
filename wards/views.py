@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
@@ -6,6 +7,7 @@ from .models import Ward
 from .forms import WardForm
 
 
+@login_required
 def ward_list(request):
 
     search = request.GET.get("search", "")
@@ -29,6 +31,7 @@ def ward_list(request):
     )
 
 
+@login_required
 def add_ward(request):
 
     if request.method == "POST":
@@ -59,6 +62,7 @@ def add_ward(request):
     )
 
 
+@login_required
 def view_ward(request, pk):
 
     ward = get_object_or_404(
@@ -75,6 +79,7 @@ def view_ward(request, pk):
     )
 
 
+@login_required
 def edit_ward(request, pk):
 
     ward = get_object_or_404(
@@ -116,6 +121,7 @@ def edit_ward(request, pk):
     )
 
 
+@login_required
 def delete_ward(request, pk):
 
     ward = get_object_or_404(
